@@ -39,7 +39,7 @@ jobs:
 
       - name: Deploy to Production
         run: |
-          docker-compose -f docker-compose.prod.yml pull ghcr.io/xk4bj/mindpost:main-${{ github.sha }}
+          docker-compose -f docker-compose.prod.yml pull
           docker-compose -f docker-compose.prod.yml up -d
 
   auto-test-deploy:  # ✅ 新增自动测试部署 Job
@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy to CI Test Environment
         run: |
-          docker-compose -f docker-compose.citest.yml pull ghcr.io/xk4bj/mindpost:ci-test-${{ github.sha }}
+          docker-compose -f docker-compose.citest.yml pull
           docker-compose -f docker-compose.citest.yml up -d
 
       - name: Wait for service to be ready
