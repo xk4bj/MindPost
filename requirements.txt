@@ -1,0 +1,29 @@
+# OpenAI API用ライブラリ
+openai==0.27.0
+
+# deepseekライブラリ
+deepseek==1.0.0  # 必要に応じてバージョンを指定
+
+# HTTPリクエスト用
+requests==2.26.0
+
+# データベース操作用
+SQLAlchemy==1.4.22
+
+# JSON処理用
+ujson==5.1.0
+
+# ログ管理
+loguru==0.6.0
+
+# テスト用
+pytest==7.0.1
+pytest-cov==3.0.0
+
+# データバリデーションと型管理
+pydantic==1.9.0
+
+# 機械学習関連（必要に応じて）
+numpy==1.21.0
+pandas==1.3.0
+scikit-learn==0.24.2
