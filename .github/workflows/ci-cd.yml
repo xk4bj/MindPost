@@ -31,6 +31,7 @@ jobs:
           docker push ghcr.io/xk4bj/mindpost:${{ github.ref_name }}-${{ github.sha }}
 
   production-deploy:
+    needs: build-and-push
     if: github.ref == 'refs/heads/main'
     runs-on: prod-server
     steps:
@@ -43,6 +44,7 @@ jobs:
           docker-compose -f docker-compose.prod.yml up -d
 
   auto-test-deploy:  # ✅ 新增自动测试部署 Job
+    needs: build-and-push
     if: github.event_name == 'push' && github.ref == 'refs/heads/ci-test'
     runs-on: test-server
     steps:
