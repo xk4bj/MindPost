@@ -34,6 +34,9 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: prod-server
     steps:
+      - name: Set COMMIT_SHA environment variable
+        run: echo "COMMIT_SHA=${{ github.sha }}" >> $GITHUB_ENV
+
       - name: Deploy to Production
         run: |
           docker-compose -f docker-compose.prod.yml pull ghcr.io/xk4bj/mindpost:main-${{ github.sha }}
@@ -43,6 +46,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/ci-test'
     runs-on: test-server
     steps:
+      - name: Set COMMIT_SHA environment variable
+        run: echo "COMMIT_SHA=${{ github.sha }}" >> $GITHUB_ENV
+
       - name: Deploy to CI Test Environment
         run: |
           docker-compose -f docker-compose.citest.yml pull ghcr.io/xk4bj/mindpost:ci-test-${{ github.sha }}
