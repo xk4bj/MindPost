@@ -2,7 +2,7 @@
 openai==0.27.0
 
 # deepseekライブラリ
-deepseek==1.0.0  # 必要に応じてバージョンを指定
+deepseek==1.0.0
 
 # HTTPリクエスト用
 requests==2.26.0
